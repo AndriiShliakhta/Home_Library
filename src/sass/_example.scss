@@ -68,8 +68,6 @@ label:hover .inputField {
   padding: 10px;
 }
 .bookItem {
-  display: flex;
-  justify-content: space-between;
   max-width: 1000px;
   outline: 1px solid lightblue;
   list-style: none;
@@ -81,8 +79,31 @@ label:hover .inputField {
   cursor: pointer;
   outline: 1px solid rgb(58, 142, 170);
 }
+.book-content-wrap {
+  display: flex;
+  justify-content: space-between;
+}
 .bookItem-elements {
   margin: 0;
   width: 50%;
   padding: 0 10px;
+}
+
+.hidden {
+  display: none;
+}
+.expand-item {
+  height: 240px;
+  display: flex;
+  justify-content: space-between;
+}
+.bookPhoto_bookItem {
+  width: 180px;
+  height: 220px;
+  outline: 1px solid rgb(77, 148, 77);
+}
+.removeBook,
+.changeDataBook {
+  width: 160px;
+  outline: 1px solid red;
 }

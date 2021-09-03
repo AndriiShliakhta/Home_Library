@@ -8,6 +8,8 @@ const refs = {
     litWork: document.querySelector('.litWork'),
     publicYear: document.querySelector('.publicYear'),
     addBook: document.querySelector('.addBook'),
+
+    bookItem: document.querySelector('.bookItem'),
     booksList:document.querySelector('.booksList')
 }
 
@@ -27,7 +29,6 @@ addToDataFromStorage();
  function addToDataFromStorage () {
     axios.get('https://home-library-9bd89-default-rtdb.firebaseio.com/book.json')
         .then(function (response) {
-            // console.log(response);
             return data.books = Object.entries(response.data)
                 .map(item => {
                     return { ...item[1], id: item[0] }
@@ -39,9 +40,18 @@ addToDataFromStorage();
 
 function createMarkup (books) {
     books.reduce((acc, item) => {
-        acc += `<li class="bookItem" id="${item['id']}">           
-                    <p class="authorName_bookItem bookItem-elements">${item['authorName']}</p>
-                    <p class="litWork_bookItem bookItem-elements">${item['litWork']}</p>
+        acc += `<li class="bookItem" id="${item['id']}">
+                    <img src="#" alt="Обкладинка книги" class="bookPhoto_bookItem bookItem-elements hidden">          
+                    <div class="book-content-wrap">
+                        <p class="bookName_bookItem bookItem-elements hidden">Book name: ${item['bookName']}</p>
+                        <p class="authorName_bookItem bookItem-elements">Author name: ${item['authorName']}</p>
+                        <p class="litWork_bookItem bookItem-elements">Literary work: ${item['litWork']}</p>
+                        <p class="publicYear_bookItem bookItem-elements hidden">Publication year: ${item['publicYear']}</p>
+                    </div>
+                    <div class="button-item-wrap">
+                        <div class="removeBook hidden">Remove a book</div>
+                        <div class="changeDataBook hidden">Change data book</div>
+                    </div>
                 </li>`;
         return refs.booksList.innerHTML = acc;
     }, '')
@@ -64,7 +74,16 @@ const addBook = function (e) {
 
 
 function expandItem(e) {
-    console.log(e.target.parentNode.id);
+    const chosenLiElem = e.target.closest(".bookItem");
+    // const chosenElem = data.books.find(elem => { return elem.id === chosenLiElem.id });
+
+    chosenLiElem.classList.add('expand-item');
+    chosenLiElem.querySelector('.bookPhoto_bookItem').classList.remove('hidden');
+    chosenLiElem.querySelector('.bookName_bookItem').classList.remove('hidden');
+    chosenLiElem.querySelector('.publicYear_bookItem').classList.remove('hidden');
+    chosenLiElem.querySelector('.removeBook').classList.remove('hidden');
+    chosenLiElem.querySelector('.changeDataBook').classList.remove('hidden');
+
 }
 
 
