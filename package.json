@@ -1,0 +1,36 @@
+{
+  "name": "home-library",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://AndriiShliakhta.github.io/Home_Library",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /Home_Library/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriiShliakhta/Home_Library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriiShliakhta/Home_Library/issues"
+  },
+  "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.6.2",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "@pnotify/confirm": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
+    "axios": "^0.21.1",
+    "firebase": "^9.0.1",
+    "lodash.debounce": "^4.0.8"
+  }
+}
