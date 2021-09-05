@@ -13,12 +13,12 @@ body {
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, sans-serif;
   line-height: 1.4;
-  color: #414141;
+  color: #4b4b4b;
 }
 
 img {
   display: block;
-  max-width: 100%;
+  width: 240px;
   height: auto;
 }
 
@@ -37,7 +37,7 @@ label {
   margin-bottom: 10px;
 }
 label:hover {
-  font-weight: 600;
+  color: #000000;
 }
 label:hover .inputField {
   outline: 2px solid lightcoral;
@@ -60,7 +60,7 @@ label:hover .inputField {
 }
 .button:hover {
   outline: 2px solid lightcoral;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -68,7 +68,8 @@ label:hover .inputField {
   padding: 10px;
 }
 .bookItem {
-  max-width: 1000px;
+  display: flex;
+  max-width: 1400px;
   outline: 1px solid lightblue;
   list-style: none;
   line-height: 1.4;
@@ -79,31 +80,49 @@ label:hover .inputField {
   cursor: pointer;
   outline: 1px solid rgb(58, 142, 170);
 }
-.book-content-wrap {
+.bookItem.expand-book-content {
   display: flex;
   justify-content: space-between;
 }
+.book-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.book-content-wrap.expand-book-content {
+  justify-content: start;
+  flex-direction: column;
+  width: 100%;
+}
+.book-content-wrap.expand-book-content .bookItem-elements {
+  margin: 5px;
+}
+
 .bookItem-elements {
   margin: 0;
   width: 50%;
   padding: 0 10px;
 }
+.bookItem-elements span {
+  font-weight: 600;
+}
 
 .hidden {
   display: none;
 }
-.expand-item {
-  height: 240px;
-  display: flex;
-  justify-content: space-between;
-}
+
 .bookPhoto_bookItem {
   width: 180px;
   height: 220px;
   outline: 1px solid rgb(77, 148, 77);
 }
-.removeBook,
-.changeDataBook {
-  width: 160px;
+.button-item-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 200px;
+}
+.button-item-wrap .bookItem-elements {
+  width: auto;
   outline: 1px solid red;
 }
